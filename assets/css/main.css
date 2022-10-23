@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,800;1,300&display=swap");
+
+:root {
+	--color-primary: #607196;
+	--color-secondary: #babfd1;
+	--color-tetiary: #e8e9ed;
+	--color-dark: #000;
+
+	--font-family-primary: "Open Sans", sans-serif;
+	--font-family-secondary: "Caveat", cursive;
+
+	--border-radius-primary: 10px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* font-family: inherit; */
+}
+
+body {
+	font-family: var(--font-family-primary);
+	background-color: var(--color-tetiary);
+}
+
+.wrapper {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.logo-container {
+	width: 50px;
+}
+
+.logo {
+	width: 100%;
+}
+
+#menu-toggle {
+	display: none;
+}
+
+.main-nav-btn {
+	padding: 4px;
+	border: none;
+	outline: none;
+	display: none;
+}
+
+.main-nav-btn svg {
+	width: 20px;
+	height: 20px;
+}
+
+.main-nav ul {
+	list-style-type: none;
+	display: flex;
+	gap: 20px;
+}
+
+.main-nav a {
+	display: block;
+	text-decoration: none;
+	color: var(--color-dark);
+	border-bottom: 2px solid transparent;
+	padding: 6px 0;
+	transition: all 0.15s ease-out;
+}
+
+.main-nav a:hover {
+	border-bottom-color: var(--color-primary);
+	color: var(--color-primary);
+}
+
+@media screen and (max-width: 1064px) {
+	.wrapper {
+		margin: 0 20px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.main-header {
+		position: relative;
+		/* background-color: red; */
+	}
+	.main-nav {
+		display: none;
+		position: absolute;
+		/* background-color: green; */
+
+		width: 100%;
+		bottom: -10%;
+		transform: translateY(100%);
+	}
+
+	#menu-toggle:checked + .main-nav {
+		display: block;
+	}
+
+	.main-nav ul {
+		flex-direction: column;
+		gap: 0;
+		background-color: var(--color-secondary);
+		border-radius: var(--border-radius-primary);
+	}
+
+	.main-nav li:nth-child(even) {
+		background-color: rgba(var(--color-tetiary), 0.5);
+	}
+
+	.main-nav a {
+		padding: 6px 20px;
+	}
+	.main-nav-btn {
+		display: inline-block;
+	}
+}
